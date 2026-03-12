@@ -1,0 +1,10 @@
+[
+  {
+    "prompt": "What is the capital of India?",
+    "expected_keywords": ["Delhi", "New Delhi"]
+  },
+  {
+    "prompt": "Which language is used in Selenium automation?",
+    "expected_keywords": ["Java", "Python"]
+  }
+]
