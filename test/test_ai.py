@@ -1,6 +1,6 @@
 import json
 from utils.llm_client import ask_ai
-from utils.validator import validate_response, hallucination_score
+from utils.evaluator import similarity_score
 
 def test_ai_responses():
 
@@ -10,23 +10,20 @@ def test_ai_responses():
     for test in tests:
 
         prompt = test["prompt"]
-        keywords = test["expected_keywords"]
+        expected_keywords = test["expected_keywords"]
 
+        # Ask AI
         response = ask_ai(prompt)
 
-        expected_text = " ".join(keywords)
+        # Expected answer
+        expected = " ".join(expected_keywords)
 
-        score = hallucination_score(expected_text, response)
+        # Calculate similarity
+        score = similarity_score(expected, response)
 
-        print("\n----------------------------------")
+        print("\n-----------------------------")
         print("Prompt:", prompt)
-        print("Expected Keywords:", keywords)
         print("AI Response:", response)
         print("Similarity Score:", round(score, 2))
 
-        if score > 0.5:
-            print("Evaluation: PASS")
-        else:
-            print("Evaluation: FAIL")
-
-        assert score > 0.3
+        assert score > 0.5
