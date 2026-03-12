@@ -1,0 +1,3 @@
+Prompt,AI Response,Score,Status
+What is the capital of India?,The capital of India is New Delhi.,0.77,PASS
+Which language is used in Selenium automation?,Selenium automation can be done using Java or Python.,0.4,FAIL
